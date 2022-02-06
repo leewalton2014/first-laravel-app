@@ -29,17 +29,34 @@
                         <p class="mb-2">{{ $post->body }}</p>
 
                         <div class="flex items-center">
-                            <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-2">
-                                @csrf
-                                <button type="submit" class="text-blue-500">Like</button>
-                            </form>
-                            <form action="" method="post" class="mr-2">
-                                @csrf
-                                <button type="submit" class="text-blue-500">Unlike</button>
-                            </form>
+                            @auth
+                            @if (!$post->likedBy(auth()->user()))
+                                <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-2">
+                                    @csrf
+                                    <button type="submit" class="text-blue-500">Like</button>
+                                </form>
+                            @else
+                                <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-2">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="text-blue-500">Unlike</button>
+                                </form>
+                            @endif
+                            @endauth
 
-                            <span class="ml-2">{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
+                            <span>{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
                         </div>
+                        
+                        @auth
+                        <div class="mt-2">
+                            <form action="{{ route('posts', $post) }}" method="post" class="mr-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500">Delete</button>
+                            </form>
+                        </div>
+                        @endauth
+
                     </div>
                 @endforeach
 
