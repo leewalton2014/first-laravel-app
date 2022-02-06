@@ -72,7 +72,10 @@ npm run watch
 
 ### example commands
 
-``php artisan make:migration create_likes_table --create=likes
-php artisan migrate
-php artisan make:model Like
-php artisan make:controller PostLikeController``
+``php artisan make:migration create_likes_table --create=likes``
+
+``php artisan migrate``
+
+``php artisan make:model Like``
+
+``php artisan make:controller PostLikeController``

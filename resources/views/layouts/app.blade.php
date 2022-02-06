@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Postly</title>
+    <title>Follow.me</title>
 </head>
 <body class="bg-gray-200">
     <nav class="p-6 bg-white flex justify-between mb-6">
