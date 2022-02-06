@@ -47,15 +47,15 @@
                             <span>{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
                         </div>
                         
-                        @auth
+                        @can('destroy', $post)
                         <div class="mt-2">
-                            <form action="{{ route('posts', $post) }}" method="post" class="mr-2">
+                            <form action="{{ route('posts.destroy', $post) }}" method="post" class="mr-2">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-500">Delete</button>
                             </form>
                         </div>
-                        @endauth
+                        @endcan
 
                     </div>
                 @endforeach
