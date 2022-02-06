@@ -69,3 +69,10 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Notes
 php artisan serve
 npm run watch
+
+### example commands
+
+``php artisan make:migration create_likes_table --create=likes
+php artisan migrate
+php artisan make:model Like
+php artisan make:controller PostLikeController``
