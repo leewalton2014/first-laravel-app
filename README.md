@@ -67,8 +67,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 
 ## Notes
-php artisan serve
-npm run watch
+``php artisan serve``
+
+``npm run watch``
 
 ### example commands
 
