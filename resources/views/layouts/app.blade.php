@@ -11,7 +11,9 @@
     <nav class="p-6 bg-white flex justify-between mb-6">
         <ul class="flex items-center">
             <li><a href="{{ route('home') }}" class="p-3">Home</a></li>
+            @auth
             <li><a href="{{ route('dashboard') }}" class="p-3">Dashboard</a></li>
+            @endauth
             <li><a href="{{ route('posts') }}" class="p-3">Posts</a></li>
         </ul>
         <ul class="flex items-center">
@@ -24,7 +26,7 @@
             @endif -->
 
             @auth
-                <li><a href="{{ route('dashboard') }}" class="p-3">{{ auth()->user()->name }}</a></li>
+                <li><a href="{{ route('users.posts', auth()->user()) }}" class="p-3">{{ auth()->user()->name }}</a></li>
                 <form action="{{ route('logout') }}" method="post" class="pl-3 inline">
                     @csrf
                     <button type="submit">Logout</button>

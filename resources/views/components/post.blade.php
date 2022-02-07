@@ -33,8 +33,10 @@
     </div>
     @endcan
 
+    @auth
     <div class="flex items-center mt-3">
         <a href="{{ route('posts.show', $post) }}" class="h-10 px-5 font-semibold rounded-md bg-blue-300 text-white p-2">Comment</a>
     </div>
+    @endauth
 
 </div>
