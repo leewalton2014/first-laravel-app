@@ -7,6 +7,7 @@ module.exports = {
         "./resources/views/dashboard.blade.php",
         "./resources/views/home.blade.php",
         "./resources/views/vendor/pagination/tailwind.blade.php",
+        "./resources/views/users/posts/index.blade.php",
     ],
     theme: {
         extend: {},

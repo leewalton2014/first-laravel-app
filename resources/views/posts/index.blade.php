@@ -24,40 +24,7 @@
 
             @if($posts->count())
                 @foreach ($posts as $post)
-                    <div class="mb-4">
-                        <a href="" class="font-bold">{{ $post->user->name }}</a> <span class="text-gray-600">{{ $post->created_at->diffForHumans() }}</span>
-                        <p class="mb-2">{{ $post->body }}</p>
-
-                        <div class="flex items-center">
-                            @auth
-                            @if (!$post->likedBy(auth()->user()))
-                                <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-2">
-                                    @csrf
-                                    <button type="submit" class="text-blue-500">Like</button>
-                                </form>
-                            @else
-                                <form action="{{ route('posts.likes', $post) }}" method="post" class="mr-2">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-blue-500">Unlike</button>
-                                </form>
-                            @endif
-                            @endauth
-
-                            <span>{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
-                        </div>
-                        
-                        @can('destroy', $post)
-                        <div class="mt-2">
-                            <form action="{{ route('posts.destroy', $post) }}" method="post" class="mr-2">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-500">Delete</button>
-                            </form>
-                        </div>
-                        @endcan
-
-                    </div>
+                    <x-post :post="$post"/>
                 @endforeach
 
                 {{ $posts->links('pagination::tailwind') }}
