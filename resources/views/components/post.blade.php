@@ -20,7 +20,8 @@
         @endif
         @endauth
 
-        <span>{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
+        <span class="mr-2">{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
+        <span class="mr-2">{{ $post->comments->count() }} {{ Str::plural('Comment', $post->comments->count()) }}</span>
     </div>
     
     @can('destroy', $post)

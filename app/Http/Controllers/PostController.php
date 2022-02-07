@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -19,8 +20,11 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $comments = $post->comments()->with(['user'])->paginate(8);
+
         return view('posts.show',[
-            'post' => $post
+            'post' => $post,
+            'comments' => $comments,
         ]);
     }
 
