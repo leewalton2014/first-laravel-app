@@ -43,3 +43,6 @@ Route::delete('/posts/{post}',[PostController::class, 'destroy'])->name('posts.d
 
 Route::post('/posts/{post}/likes',[PostLikeController::class, 'store'])->name('posts.likes');
 Route::delete('/posts/{post}/likes',[PostLikeController::class, 'destroy'])->name('posts.likes');
+
+//Route::post('/users/{user:id}/follow',[UserFollowController::class, 'store'])->name('users.follows');
+//Route::delete('/users/{user:id}/follow',[UserFollowController::class, 'destroy'])->name('users.follows');
