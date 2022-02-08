@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\Follow;
 use App\Models\Comment;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
@@ -61,8 +62,18 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function follows()
+    {
+        return $this->hasMany(Follow::class);
+    }
+
     public function receivedLikes()
     {
         return $this->hasManyThrough(Like::class, Post::class);
+    }
+
+    public function followedBy(User $user)
+    {
+        return $this->follows->contains('follower_id', $user->id);
     }
 }

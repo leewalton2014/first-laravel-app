@@ -10,6 +10,7 @@ module.exports = {
         "./resources/views/vendor/pagination/tailwind.blade.php",
         "./resources/views/users/posts/index.blade.php",
         "./resources/views/components/post.blade.php",
+        "./resources/views/components/comment.blade.php",
     ],
     theme: {
         extend: {},

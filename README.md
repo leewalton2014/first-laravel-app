@@ -80,3 +80,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ``php artisan make:model Like``
 
 ``php artisan make:controller PostLikeController``
+
+``php artisan make:component post``

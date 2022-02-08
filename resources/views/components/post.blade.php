@@ -21,7 +21,7 @@
         @endauth
 
         <span class="mr-2">{{ $post->likes->count() }} {{ Str::plural('Like', $post->likes->count()) }}</span>
-        <span class="mr-2">{{ $post->comments->count() }} {{ Str::plural('Comment', $post->comments->count()) }}</span>
+        <span class="mr-2">{{ $post->comments->count() }} {{ Str::plural('Reply', $post->comments->count()) }}</span>
     </div>
     
     @can('destroy', $post)
@@ -36,7 +36,7 @@
 
     @auth
     <div class="flex items-center mt-3">
-        <a href="{{ route('posts.show', $post) }}" class="h-10 px-5 font-semibold rounded-md bg-blue-300 text-white p-2">Comment</a>
+        <a href="{{ route('posts.show', $post) }}" class="h-10 px-5 font-semibold rounded-md bg-blue-300 text-white p-2">Reply</a>
     </div>
     @endauth
 
