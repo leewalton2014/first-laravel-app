@@ -56,6 +56,7 @@ class PostController extends Controller
         //     return back();
         // }
 
+        //use policy to check current user can delete
         $this->authorize('destroy', $post);
         
         $post->delete();
