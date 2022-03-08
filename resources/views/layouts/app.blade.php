@@ -13,9 +13,12 @@
             <li><a href="{{ route('home') }}" class="p-3">Home</a></li>
             @auth
             <li><a href="{{ route('dashboard') }}" class="p-3">Dashboard</a></li>
+            <li><a href="{{ route('people') }}" class="p-3">People</a></li>
             @endauth
             <li><a href="{{ route('posts') }}" class="p-3">Posts</a></li>
         </ul>
+
+
         <ul class="flex items-center">
             <!-- @if (auth()->user())
                 <li><a href="" class="p-3">Lee Walton</a></li>
@@ -36,7 +39,7 @@
             @guest
                 <li><a href="{{ route('login') }}" class="p-3">Login</a></li>
                 <li><a href="{{ route('register') }}" class="p-3">Register</a></li>
-            @endguest      
+            @endguest
         </ul>
     </nav>
     @yield('content')

@@ -12,6 +12,7 @@ class PostController extends Controller
     {
         $this->middleware(['auth'])->only(['store', 'destroy']);
     }
+    
     public function index()
     {
         $posts = Post::orderBy('created_at', 'desc')->with(['user', 'likes', 'comments'])->paginate(8);
@@ -42,7 +43,7 @@ class PostController extends Controller
         //     'user_id' => auth()->id(),
         //     'body' => $request->body
         // ]);
-        
+
         //can create post through user model by adding post relationship
 
         $request->user()->posts()->create($request->only('body'));
@@ -58,7 +59,7 @@ class PostController extends Controller
 
         //use policy to check current user can delete
         $this->authorize('destroy', $post);
-        
+
         $post->delete();
 
         return back();

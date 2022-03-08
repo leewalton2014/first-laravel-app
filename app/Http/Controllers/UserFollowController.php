@@ -9,7 +9,17 @@ class UserFollowController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth'])->only(['store', 'destroy']);
+    }
+
+    public function index(User $user)
+    {
+        $users = $user->followers()->paginate(8);
+
+        return view('people.followers', [
+            'users' => $users,
+            'user' => $user
+        ]);
     }
 
     public function store(User $user)
